@@ -1,0 +1,173 @@
+/* ==========================================================================
+   AURA COMMAND CENTER MODAL (ENTER AURA EXPERIENCE)
+   ========================================================================== */
+
+.command-palette-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 3000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(3rem, 10vh, 6rem) 1.25rem 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.command-palette-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.command-palette-box {
+  width: 100%;
+  max-width: 680px;
+  background: var(--surface);
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  transform: translateY(-16px) scale(0.97);
+  transition: transform var(--duration-normal) var(--ease-standard);
+  display: flex;
+  flex-direction: column;
+}
+
+.command-palette-backdrop.active .command-palette-box {
+  transform: translateY(0) scale(1);
+}
+
+/* Palette Search Bar */
+.palette-search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--surface-elevated);
+}
+
+.palette-search-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.palette-search-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.palette-search-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.palette-shortcut-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  white-space: nowrap;
+}
+
+/* Command Items List */
+.palette-results-list {
+  padding: 12px;
+  max-height: 380px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.palette-group-heading {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-caps);
+  color: var(--text-tertiary);
+  padding: 8px 12px 4px;
+}
+
+.palette-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: var(--fs-small);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.palette-item:hover, .palette-item.selected {
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+}
+
+.palette-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.palette-item-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--accent-cyan);
+}
+
+.palette-item-desc {
+  font-size: 0.76rem;
+  color: var(--text-tertiary);
+}
+
+/* Palette Footer */
+.palette-footer {
+  padding: 12px 24px;
+  background: var(--surface-elevated);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--fs-micro);
+  color: var(--text-tertiary);
+}
+
+.palette-key-tips {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.palette-key-tip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.palette-key {
+  font-family: var(--font-mono);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.65rem;
+}

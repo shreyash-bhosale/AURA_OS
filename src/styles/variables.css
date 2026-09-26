@@ -1,0 +1,148 @@
+/* ==========================================================================
+   AURA DESIGN SYSTEM — DESIGN TOKENS
+   Strict adherence to Apple-Inspired Master Specification (GEMINI.md)
+   ========================================================================== */
+
+:root {
+  /* Color System — Dark Mode (Default) */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0c;
+  --bg-tertiary: #121214;
+  --surface: #161617;
+  --surface-hover: #1c1c1e;
+  --surface-elevated: #242426;
+  --surface-glass: rgba(22, 22, 23, 0.76);
+  --surface-glass-border: rgba(255, 255, 255, 0.09);
+  
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-standard: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(255, 255, 255, 0.22);
+  --border-active: rgba(255, 255, 255, 0.40);
+
+  /* Typography Colors */
+  --text-primary: #F5F5F7;
+  --text-secondary: #86868B;
+  --text-tertiary: #525257;
+  --text-inverse: #000000;
+
+  /* Accent & Core Intelligence Palette */
+  --accent-primary: #6366F1;       /* Luminous Indigo Core */
+  --accent-primary-hover: #4F46E5;
+  --accent-glow: rgba(99, 102, 241, 0.30);
+  --accent-glow-subtle: rgba(99, 102, 241, 0.12);
+  --accent-cyan: #38BDF8;          /* Neural Signal */
+  --accent-cyan-glow: rgba(56, 189, 248, 0.25);
+  --accent-emerald: #34D399;       /* Execution Pass / Active */
+  --accent-amber: #FBBF24;         /* In-Progress / Focus */
+  --accent-violet: #A855F7;        /* Generative Intelligence */
+
+  /* Typography Stack */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  /* Typography Scale */
+  --fs-display: clamp(3.25rem, 7vw, 5.75rem);
+  --fs-hero: clamp(2.5rem, 5vw, 4.25rem);
+  --fs-h1: clamp(2rem, 4vw, 3rem);
+  --fs-h2: clamp(1.6rem, 3vw, 2.25rem);
+  --fs-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --fs-body-lg: 1.125rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-micro: 0.75rem;
+
+  /* Line Heights */
+  --lh-tight: 1.08;
+  --lh-snug: 1.25;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.62;
+
+  /* Letter Spacing */
+  --ls-display: -0.035em;
+  --ls-hero: -0.025em;
+  --ls-heading: -0.02em;
+  --ls-body: -0.011em;
+  --ls-caps: 0.08em;
+
+  /* Spacing Scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Layout Widths */
+  --container-max: 1280px;
+  --container-narrow: 980px;
+  --container-wide: 1440px;
+
+  /* Border Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Motion & Easing */
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 180ms;
+  --duration-normal: 280ms;
+  --duration-slow: 450ms;
+  --duration-cinematic: 700ms;
+
+  /* Shadows */
+  --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 12px 36px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(255, 255, 255, 0.05);
+  --shadow-core: 0 0 60px rgba(99, 102, 241, 0.25);
+  --shadow-glow-cyan: 0 0 40px rgba(56, 189, 248, 0.2);
+
+  /* Backdrop Blur */
+  --blur-glass: blur(24px);
+  --blur-subtle: blur(12px);
+}
+
+/* Light Mode Overrides */
+[data-theme="light"] {
+  --bg-primary: #F5F5F7;
+  --bg-secondary: #EBEBED;
+  --bg-tertiary: #E1E1E6;
+  --surface: #FFFFFF;
+  --surface-hover: #F2F2F4;
+  --surface-elevated: #FFFFFF;
+  --surface-glass: rgba(255, 255, 255, 0.82);
+  --surface-glass-border: rgba(0, 0, 0, 0.08);
+
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --border-standard: rgba(0, 0, 0, 0.09);
+  --border-hover: rgba(0, 0, 0, 0.18);
+  --border-active: rgba(0, 0, 0, 0.35);
+
+  --text-primary: #1D1D1F;
+  --text-secondary: #6E6E73;
+  --text-tertiary: #9E9EA7;
+  --text-inverse: #FFFFFF;
+
+  --accent-primary: #4F46E5;
+  --accent-primary-hover: #4338CA;
+  --accent-glow: rgba(79, 70, 229, 0.20);
+  --accent-glow-subtle: rgba(79, 70, 229, 0.08);
+  --accent-cyan: #0284C7;
+  --accent-cyan-glow: rgba(2, 132, 199, 0.18);
+  --accent-emerald: #059669;
+  --accent-amber: #D97706;
+  --accent-violet: #7C3AED;
+
+  --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 12px 36px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-core: 0 0 50px rgba(79, 70, 229, 0.15);
+  --shadow-glow-cyan: 0 0 35px rgba(2, 132, 199, 0.12);
+}

@@ -1,0 +1,231 @@
+/* ==========================================================================
+   AURA WORKSPACE PAGE (/workspace)
+   Full-screen dedicated operating system dashboard
+   ========================================================================== */
+
+.workspace-page-container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Standalone App Sidebar */
+.app-sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 14px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.app-sidebar-top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.app-brand-lockup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.app-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.app-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.app-nav-item:hover {
+  color: var(--text-primary);
+  background: var(--surface-hover);
+}
+
+.app-nav-item.active {
+  color: var(--text-primary);
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-standard);
+  font-weight: 600;
+}
+
+.app-nav-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-nav-item-left svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.app-sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* App Main Content Area */
+.app-main-stage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* App Top Header Bar */
+.app-top-header {
+  height: 60px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--surface-glass);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1.25rem, 3vw, 2.5rem);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+
+.app-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-micro);
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+}
+
+.app-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.btn-command-shortcut {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  font-size: var(--fs-micro);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.btn-command-shortcut:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+/* View Container */
+.app-view-container {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  flex: 1;
+}
+
+.workspace-module-view {
+  display: none;
+  animation: fadeIn 0.25s var(--ease-standard) both;
+}
+
+.workspace-module-view.active {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .workspace-page-container {
+    grid-template-columns: 1fr;
+  }
+  .app-sidebar {
+    display: none;
+  }
+}
+
+/* ─── Workspace Mini Project Cards ──────────────────────────────────────── */
+
+.workspace-mini-project-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius-sm);
+  transition: background var(--duration-fast) var(--ease-standard);
+}
+
+.workspace-mini-project-link:hover .workspace-mini-project {
+  background: var(--surface-elevated);
+}
+
+.workspace-mini-project {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 8px;
+  background: var(--surface);
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.wmp-name {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.wmp-progress-track {
+  height: 3px;
+  background: var(--border-subtle);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.wmp-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-cyan));
+  border-radius: 999px;
+  transition: width 0.6s var(--ease-standard);
+}
+
+.wmp-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+

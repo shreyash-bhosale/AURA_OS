@@ -1,0 +1,122 @@
+/* ==========================================================================
+   AURA PROJECTS PAGE (/projects)
+   Project management, statistics, filtering, cards, and creation trigger
+   ========================================================================== */
+
+/* Project Page Controls & Filter Bar */
+.projects-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-xl);
+  padding: 14px 20px;
+  margin-bottom: var(--space-8);
+  box-shadow: var(--shadow-subtle);
+}
+
+.projects-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  min-width: 240px;
+  flex: 1;
+  max-width: 380px;
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.projects-search-box:focus-within {
+  border-color: var(--accent-primary);
+}
+
+.projects-search-box input {
+  background: transparent;
+  border: none;
+  font-size: var(--fs-small);
+  color: var(--text-primary);
+  outline: none;
+  width: 100%;
+}
+
+.projects-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.filter-btn:hover {
+  color: var(--text-primary);
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+}
+
+.filter-btn.active {
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  border-color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Project Card Specific Enhancements */
+.project-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.project-card-meta-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--fs-micro);
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-4);
+}
+
+.project-card-meta-line span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Empty State */
+.projects-empty-state {
+  text-align: center;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 4vw, 3rem);
+  background: var(--surface);
+  border: 1px dashed var(--border-standard);
+  border-radius: var(--radius-xl);
+  margin: var(--space-8) 0;
+}
+
+.projects-empty-state h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.projects-empty-state p {
+  max-width: 480px;
+  margin: 0 auto var(--space-6);
+  font-size: var(--fs-small);
+}

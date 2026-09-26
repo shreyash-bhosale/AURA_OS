@@ -1,0 +1,435 @@
+/* ==========================================================================
+   AURA PROJECT DETAIL WORKSPACE (/projects/:id)
+   Sub-navigation, Overview, Kanban Tasks, Architecture Diagram, Activity, Modals
+   ========================================================================== */
+
+/* Project Header & Breadcrumbs */
+.project-detail-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: clamp(6.5rem, 10vh, 7.5rem) 0 0;
+  position: relative;
+}
+
+.project-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-micro);
+  font-family: var(--font-mono);
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-4);
+}
+
+.project-breadcrumbs a {
+  color: var(--text-secondary);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.project-breadcrumbs a:hover {
+  color: var(--text-primary);
+}
+
+.project-headline-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.project-headline-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.project-page-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+/* Sub-Tab Navigation Bar */
+.project-subnav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-top: var(--space-6);
+  overflow-x: auto;
+}
+
+.project-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  white-space: nowrap;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.project-tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.project-tab-btn.active {
+  color: var(--text-primary);
+  font-weight: 600;
+  border-bottom-color: var(--accent-cyan);
+}
+
+/* Sub-Tab View Panels */
+.project-subview-panel {
+  display: none;
+  animation: fadeIn 0.25s var(--ease-standard) both;
+  padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(4rem, 8vw, 6rem);
+}
+
+.project-subview-panel.active {
+  display: block;
+}
+
+/* ==========================================================================
+   KANBAN TASK MANAGEMENT SYSTEM
+   ========================================================================== */
+
+.kanban-board-container {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(260px, 1fr));
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding-bottom: var(--space-6);
+  align-items: flex-start;
+}
+
+.kanban-column {
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 480px;
+}
+
+.kanban-column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px 8px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.kanban-col-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-micro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-caps);
+  color: var(--text-secondary);
+}
+
+.kanban-task-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: grab;
+  transition: transform var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard),
+              box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.kanban-task-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hover);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.task-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.task-card-title {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: var(--lh-snug);
+}
+
+.task-card-desc {
+  font-size: var(--fs-micro);
+  color: var(--text-secondary);
+  line-height: var(--lh-normal);
+}
+
+.task-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+}
+
+.task-move-select {
+  font-size: 0.68rem;
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  outline: none;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   PROJECT ARCHITECTURE SYSTEM
+   ========================================================================== */
+
+.arch-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-xl);
+  padding: 12px 20px;
+  margin-bottom: var(--space-6);
+}
+
+.arch-canvas-viewport {
+  background: var(--surface);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-xl);
+  height: clamp(480px, 62vh, 640px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-elevated);
+}
+
+#arch-interactive-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.arch-layer-groups-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.arch-layer-block {
+  background: var(--surface);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.arch-layer-title {
+  font-size: var(--fs-micro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-caps);
+  color: var(--accent-cyan);
+  margin-bottom: 14px;
+}
+
+.arch-components-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-4);
+}
+
+.arch-comp-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Flow View */
+.arch-flow-sequence {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.arch-flow-step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-lg);
+  padding: 18px 24px;
+  position: relative;
+}
+
+.arch-flow-step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.arch-flow-connector-line {
+  width: 2px;
+  height: 24px;
+  background: var(--border-hover);
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   MULTI-STEP PROJECT CREATION WIZARD MODAL
+   ========================================================================== */
+
+.wizard-modal-box {
+  width: 100%;
+  max-width: 680px;
+  background: var(--surface);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.wizard-steps-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--surface-elevated);
+}
+
+.wizard-step-pill {
+  font-size: var(--fs-micro);
+  font-family: var(--font-mono);
+  color: var(--text-tertiary);
+  font-weight: 600;
+}
+
+.wizard-step-pill.active {
+  color: var(--accent-cyan);
+}
+
+.wizard-body {
+  padding: 28px;
+  min-height: 360px;
+}
+
+.wizard-step-content {
+  display: none;
+  animation: fadeIn 0.2s var(--ease-standard) both;
+}
+
+.wizard-step-content.active {
+  display: block;
+}
+
+.wizard-footer {
+  padding: 18px 28px;
+  border-top: 1px solid var(--border-subtle);
+  background: var(--surface-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: var(--space-4);
+}
+
+.form-label {
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-caps);
+  color: var(--text-secondary);
+}
+
+.form-input, .form-textarea, .form-select {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-standard);
+  font-size: var(--fs-small);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--accent-primary);
+}
+
+/* Tag Selectors */
+.tag-chips-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.chip-select-btn {
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-micro);
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.chip-select-btn.selected {
+  background: var(--accent-primary);
+  color: #FFFFFF;
+  border-color: transparent;
+}

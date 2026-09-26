@@ -1,0 +1,101 @@
+/* ==========================================================================
+   AURA PRODUCT PAGE (/product)
+   Deep dive into AURA's core capabilities:
+   Learning, Coding, Projects, Goals, Focus, Analytics
+   ========================================================================== */
+
+.product-capabilities-grid {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3.5rem, 8vw, 6rem);
+  margin-top: var(--space-8);
+}
+
+.capability-feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.capability-feature-row.reverse {
+  direction: rtl;
+}
+
+.capability-feature-row.reverse > * {
+  direction: ltr;
+}
+
+.capability-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.capability-num {
+  font-size: var(--fs-micro);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-caps);
+}
+
+.capability-title {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  color: var(--text-primary);
+}
+
+.capability-desc {
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  line-height: var(--lh-relaxed);
+}
+
+.capability-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.capability-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--fs-small);
+  color: var(--text-primary);
+}
+
+.capability-point svg {
+  color: var(--accent-emerald);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.capability-visual-card {
+  background: var(--surface);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-elevated);
+  position: relative;
+  transition: transform var(--duration-normal) var(--ease-standard),
+              border-color var(--duration-normal) var(--ease-standard);
+}
+
+.capability-visual-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+}
+
+@media (max-width: 900px) {
+  .capability-feature-row,
+  .capability-feature-row.reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+}

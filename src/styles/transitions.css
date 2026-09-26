@@ -1,0 +1,76 @@
+/* ==========================================================================
+   AURA MULTI-PAGE TRANSITIONS & NAVIGATION STATES
+   Strict adherence to Apple-Inspired Master Specification (GEMINI.md)
+   ========================================================================== */
+
+/* Main Router Viewport */
+#app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#page-content {
+  flex: 1;
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 180ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+#page-content.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+#page-content.page-exit {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* Active Navigation Link Styling */
+.nav-link.active-route {
+  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.08);
+  position: relative;
+  font-weight: 600;
+}
+
+[data-theme="light"] .nav-link.active-route {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.nav-link.active-route::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 2px;
+  background-color: var(--accent-cyan);
+  border-radius: var(--radius-pill);
+}
+
+.mobile-nav-link.active-route {
+  color: var(--accent-cyan);
+  font-weight: 700;
+  padding-left: 8px;
+  border-left: 2px solid var(--accent-cyan);
+}
+
+/* Page Header Banner */
+.page-header-banner {
+  padding-top: clamp(6.5rem, 12vh, 8.5rem);
+  padding-bottom: clamp(2.5rem, 5vh, 4rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header-banner .hero-ambient-glow {
+  top: 40%;
+}

@@ -1,0 +1,168 @@
+/* ==========================================================================
+   AURA CODING WORKSPACE & CODE PLAYGROUND
+   ========================================================================== */
+
+.coding-section {
+  position: relative;
+}
+
+.coding-playground-frame {
+  background: var(--surface);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-elevated);
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* Editor Toolbar */
+.editor-topbar {
+  background: var(--surface-elevated);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.editor-lang-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.editor-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-small);
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: all var(--duration-fast) var(--ease-standard);
+  background: transparent;
+  border: none;
+}
+
+.editor-tab-btn:hover {
+  color: var(--text-primary);
+  background: var(--surface);
+}
+
+.editor-tab-btn.active {
+  color: var(--text-primary);
+  background: var(--surface);
+  border: 1px solid var(--border-standard);
+  font-weight: 600;
+}
+
+.editor-meta-badges {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Editor Body */
+.editor-body-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--bg-primary);
+}
+
+.code-view-container {
+  display: flex;
+  padding: 24px 20px;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  line-height: 1.68;
+  overflow-x: auto;
+}
+
+.line-numbers {
+  padding-right: 18px;
+  border-right: 1px solid var(--border-subtle);
+  color: var(--text-tertiary);
+  user-select: none;
+  text-align: right;
+}
+
+.code-content {
+  padding-left: 20px;
+  flex: 1;
+  color: #E2E8F0;
+  white-space: pre;
+}
+
+/* Syntax Highlighting Tokens */
+.syn-keyword { color: #F43F5E; font-weight: 600; }
+.syn-def { color: #38BDF8; font-weight: 600; }
+.syn-param { color: #FBBF24; }
+.syn-string { color: #34D399; }
+.syn-number { color: #A78BFA; }
+.syn-comment { color: #64748B; font-style: italic; }
+.syn-builtin { color: #818CF8; }
+
+/* Editor Footer & Terminal Test Runner */
+.editor-terminal-bar {
+  background: var(--surface-elevated);
+  border-top: 1px solid var(--border-subtle);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.terminal-status-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+}
+
+.test-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-emerald);
+  font-weight: 600;
+}
+
+.runtime-stat {
+  color: var(--text-secondary);
+}
+
+.editor-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.btn-run-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.btn-run-code:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.btn-run-code.running {
+  opacity: 0.7;
+  pointer-events: none;
+}

@@ -1,0 +1,215 @@
+/* ==========================================================================
+   AURA FOCUS MODE (MINIMAL DISTRACTION-FREE ENVIRONMENT)
+   ========================================================================== */
+
+.focus-section {
+  position: relative;
+}
+
+.focus-environment-card {
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xl);
+  min-height: 520px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 6vw, 4.5rem) clamp(1.5rem, 4vw, 3rem);
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="light"] .focus-environment-card {
+  background: #0d0d11;
+  color: #F5F5F7;
+}
+
+/* Ambient Canvas Background */
+#focus-ambient-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.focus-content-layer {
+  position: relative;
+  z-index: 2;
+  max-width: 540px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.focus-eyebrow {
+  font-size: var(--fs-micro);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+}
+
+/* Large Hero Timer Typography */
+.focus-timer-display {
+  font-size: clamp(3.5rem, 9vw, 6rem);
+  font-weight: 200;
+  letter-spacing: -0.04em;
+  font-family: var(--font-sans);
+  color: #FFFFFF;
+  line-height: 1;
+  margin: var(--space-2) 0;
+  user-select: none;
+}
+
+.focus-active-task {
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: #8E8E93;
+  margin-bottom: var(--space-4);
+}
+
+.focus-divider-line {
+  width: 48px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: var(--space-4);
+}
+
+/* Focus Action Controls */
+.focus-actions-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.btn-focus-primary {
+  padding: 12px 32px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  background: #FFFFFF;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.btn-focus-primary:hover {
+  transform: translateY(-1px);
+  background: #F2F2F7;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+}
+
+.btn-focus-secondary {
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.1);
+  color: #E5E5EA;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.btn-focus-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+}
+
+/* Session Progress Indicator */
+.focus-progress-wrapper {
+  width: 100%;
+  max-width: 260px;
+}
+
+.focus-progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: #8E8E93;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.focus-progress-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.focus-progress-fill {
+  height: 100%;
+  width: 64%;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-primary));
+  border-radius: var(--radius-pill);
+  transition: width 0.3s ease;
+}
+
+/* Ambient Audio Synthesizer Bar */
+.focus-audio-bar {
+  position: absolute;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 3;
+  font-size: var(--fs-micro);
+  color: #8E8E93;
+}
+
+.audio-sound-picker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.audio-chip {
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #AEAEB2;
+  font-size: 0.68rem;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.audio-chip:hover {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.audio-chip.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-toggle-audio {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #FFFFFF;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+}

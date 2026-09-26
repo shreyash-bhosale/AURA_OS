@@ -1,0 +1,141 @@
+/* ==========================================================================
+   AURA ANALYTICS (FLOWING ACTIVITY FIELD & PRODUCTIVITY STORYTELLING)
+   ========================================================================== */
+
+.analytics-section {
+  position: relative;
+}
+
+.analytics-visual-container {
+  background: var(--surface);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.analytics-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.analytics-title-group h3 {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.analytics-title-group p {
+  font-size: var(--fs-small);
+  color: var(--text-secondary);
+}
+
+/* Big Metrics Quartet */
+.analytics-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+}
+
+.analytics-metric-box {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.analytics-metric-num {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.analytics-metric-label {
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-caps);
+}
+
+.analytics-metric-delta {
+  font-size: 0.72rem;
+  color: var(--accent-emerald);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+/* Flowing Activity Field SVG */
+.flowing-activity-viewport {
+  width: 100%;
+  height: 240px;
+  position: relative;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: 16px 8px 0;
+}
+
+.flowing-svg-chart {
+  width: 100%;
+  height: 100%;
+}
+
+/* Weekly Consistency Matrix Heatmap */
+.consistency-matrix-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.consistency-header {
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-caps);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.consistency-grid {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 6px;
+}
+
+.heatmap-cell {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard);
+  position: relative;
+}
+
+.heatmap-cell:hover {
+  transform: scale(1.2);
+  border-color: var(--text-primary);
+  z-index: 10;
+}
+
+.heatmap-cell.lvl-1 { background: rgba(99, 102, 241, 0.25); border-color: rgba(99, 102, 241, 0.4); }
+.heatmap-cell.lvl-2 { background: rgba(99, 102, 241, 0.50); border-color: rgba(99, 102, 241, 0.6); }
+.heatmap-cell.lvl-3 { background: rgba(56, 189, 248, 0.75); border-color: rgba(56, 189, 248, 0.9); }
+.heatmap-cell.lvl-4 { background: #38BDF8; box-shadow: 0 0 8px rgba(56, 189, 248, 0.4); }

@@ -1,0 +1,458 @@
+/* ==========================================================================
+   AURA ONBOARDING STYLES
+   Conversational, spacious, tactile multi-step wizard.
+   ========================================================================== */
+
+.onboarding-viewport {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-base);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ambient glow */
+.onboarding-viewport::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.07) 0%, rgba(99, 102, 241, 0.04) 50%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Onboarding Header / Progress Bar */
+.onboarding-topbar {
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  z-index: 10;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+[data-theme="light"] .onboarding-topbar {
+  background: rgba(245, 245, 247, 0.7);
+}
+
+.onboarding-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+/* Stepper Progress Bar */
+.onboarding-progress-track {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.onboarding-step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step-node {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.step-node.active {
+  color: var(--text-inverse);
+  background: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.step-node.completed {
+  color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.step-connector {
+  width: 16px;
+  height: 2px;
+  background: var(--border-subtle);
+  transition: background var(--duration-fast);
+}
+
+.step-connector.completed {
+  background: var(--accent-cyan);
+}
+
+.onboarding-exit-btn {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: all var(--duration-fast);
+}
+
+.onboarding-exit-btn:hover {
+  color: var(--text-primary);
+  background: var(--surface-hover);
+}
+
+/* Main Onboarding Stage */
+.onboarding-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.onboarding-card {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  animation: onboardingFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes onboardingFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.onboarding-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-cyan);
+  margin-bottom: 12px;
+}
+
+.onboarding-question {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.onboarding-desc {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+/* Choice Grid Options */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.options-grid-wide {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.option-chip {
+  background: var(--surface);
+  border: 1px solid var(--border-standard);
+  border-radius: 16px;
+  padding: 16px 18px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: all var(--duration-fast) var(--ease-standard);
+  user-select: none;
+}
+
+.option-chip:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+.option-chip.selected {
+  background: var(--surface-elevated);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 1px var(--accent-cyan), 0 4px 16px rgba(56, 189, 248, 0.15);
+}
+
+.option-chip-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.option-chip-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.option-chip-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  line-height: 1.35;
+}
+
+.option-chip-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-standard);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--duration-fast);
+}
+
+.option-chip.selected .option-chip-check {
+  background: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+}
+
+.option-chip.selected .option-chip-check svg {
+  stroke: #000000;
+  display: block;
+}
+
+.option-chip-check svg {
+  display: none;
+}
+
+/* Radio variant (Single Select) */
+.option-chip.radio .option-chip-check {
+  border-radius: 50%;
+}
+
+.option-chip.radio.selected .option-chip-check::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #000000;
+}
+
+/* Custom write-in input */
+.option-custom-input {
+  grid-column: 1 / -1;
+  margin-top: 4px;
+}
+
+/* Action Bar (Back / Continue) */
+.onboarding-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.btn-onboarding-back {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-onboarding-back:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+.btn-onboarding-skip {
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding: 10px 16px;
+  transition: color var(--duration-fast);
+}
+
+.btn-onboarding-skip:hover {
+  color: var(--text-secondary);
+}
+
+.btn-onboarding-continue {
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.btn-onboarding-continue:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] .btn-onboarding-continue:hover:not(:disabled) {
+  background: #000000;
+}
+
+.btn-onboarding-continue:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   CREATING WORKSPACE ANIMATION SCREEN (Step 8)
+   ========================================================================== */
+
+.workspace-generating-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+}
+
+.generating-aura-core {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aura-core-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  animation: corePulse 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.ring-1 {
+  width: 130px;
+  height: 130px;
+  border-color: rgba(56, 189, 248, 0.25);
+  animation-delay: 0s;
+}
+
+.ring-2 {
+  width: 90px;
+  height: 90px;
+  border-color: rgba(99, 102, 241, 0.4);
+  animation-delay: 0.4s;
+}
+
+.ring-3 {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #38bdf8 0%, #6366f1 70%);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+  animation: coreGlow 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes corePulse {
+  0% { transform: scale(0.85); opacity: 0.4; }
+  50% { transform: scale(1.1); opacity: 0.9; }
+  100% { transform: scale(0.85); opacity: 0.4; }
+}
+
+@keyframes coreGlow {
+  from { transform: scale(0.95); box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
+  to { transform: scale(1.05); box-shadow: 0 0 45px rgba(56, 189, 248, 0.85); }
+}
+
+.generating-status-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  min-height: 36px;
+  transition: opacity 0.25s ease;
+  margin-bottom: 12px;
+}
+
+.generating-subtext {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  max-width: 380px;
+  line-height: 1.5;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .onboarding-topbar {
+    padding: 16px 20px;
+  }
+  .onboarding-progress-track {
+    display: none; /* Hide multi-node stepper on small screens, show simple fraction */
+  }
+  .onboarding-mobile-step {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+  .onboarding-question {
+    font-size: 1.5rem;
+  }
+  .options-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 641px) {
+  .onboarding-mobile-step {
+    display: none;
+  }
+}

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA — AI Personal Command Center</title>
+  <meta name="description" content="AURA is a futuristic personal command center for students and developers. Manage learning, coding practice, projects, and focus from one unified workspace.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%236366F1'/><circle cx='50' cy='50' r='20' fill='%2338BDF8'/></svg>">
+</head>
+<body>
+
+  <!-- ========================================================================
+       SHARED PERSISTENT TOP NAVIGATION
+       ======================================================================== -->
+  <header class="nav-header">
+    <div class="container-wide">
+      <nav class="nav-inner" aria-label="Main Navigation">
+        <!-- Brand (Links to Home /) -->
+        <a href="/" class="nav-brand" aria-label="AURA Home">
+          <div class="brand-glyph" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5">
+              <circle cx="12" cy="12" r="9"></circle>
+              <circle cx="12" cy="12" r="3" fill="#38BDF8"></circle>
+            </svg>
+          </div>
+          <span class="brand-text">AURA</span>
+        </a>
+
+        <!-- Desktop Multi-Page Route Links -->
+        <ul class="nav-links">
+          <li><a href="/product" class="nav-link">Product</a></li>
+          <li><a href="/experience" class="nav-link">Experience</a></li>
+          <li><a href="/ai" class="nav-link">AI Intelligence</a></li>
+          <li><a href="/workspace" class="nav-link">Workspace</a></li>
+          <li><a href="/projects" class="nav-link" style="color: var(--accent-cyan);">Projects</a></li>
+        </ul>
+
+        <!-- Right Action Controls -->
+        <div class="nav-actions">
+          <!-- Theme Toggle -->
+          <button id="theme-toggle-btn" class="btn-icon-theme" aria-label="Toggle Theme Appearance" title="Toggle Appearance">
+            <!-- Sun icon for dark mode (switches to light) -->
+            <svg class="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <!-- Moon icon for light mode (switches to dark) -->
+            <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+
+          <!-- Enter AURA Route CTA -->
+          <a href="/workspace" class="btn btn-primary" id="nav-btn-enter">
+            Enter AURA
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+
+          <!-- Mobile Toggle -->
+          <button id="mobile-menu-toggle" class="nav-mobile-toggle" aria-label="Open Navigation Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="/" class="brand-text" style="text-decoration: none;">AURA</a>
+      <button id="btn-close-mobile-nav" class="btn-icon-theme" aria-label="Close Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="/" class="mobile-nav-link">Home</a></li>
+      <li><a href="/product" class="mobile-nav-link">Product</a></li>
+      <li><a href="/experience" class="mobile-nav-link">Experience</a></li>
+      <li><a href="/ai" class="mobile-nav-link">AI Intelligence</a></li>
+      <li><a href="/workspace" class="mobile-nav-link">Workspace</a></li>
+      <li><a href="/projects" class="mobile-nav-link" style="color: var(--accent-cyan);">Projects</a></li>
+    </ul>
+    <div class="mobile-nav-actions">
+      <a href="/workspace" class="btn btn-primary" style="width: 100%;">Enter AURA</a>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       APPLICATION VIEWPORT (DYNAMIC MULTI-PAGE ROUTE TARGET)
+       ======================================================================== -->
+  <div id="app-root">
+    <main id="page-content" role="main"></main>
+  </div>
+
+  <!-- ========================================================================
+       SHARED PERSISTENT FOOTER
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container-wide">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="/" class="nav-brand" style="margin-bottom: 12px; display: inline-flex;">
+            <div class="brand-glyph" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5">
+                <circle cx="12" cy="12" r="9"></circle>
+                <circle cx="12" cy="12" r="3" fill="#38BDF8"></circle>
+              </svg>
+            </div>
+            <span class="brand-text">AURA</span>
+          </a>
+          <p>
+            The intelligent personal command center unifying curriculum learning, code execution sandboxes, and autonomous AI guidance into one workspace.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/product">Product Capabilities</a></li>
+            <li><a href="/experience">Experience Journey</a></li>
+            <li><a href="/ai">AI Intelligence</a></li>
+            <li><a href="/workspace">Operating Workspace</a></li>
+            <li><a href="/projects">Projects</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Capabilities</div>
+          <ul class="footer-list">
+            <li><a href="/product#learning">Skill Constellation</a></li>
+            <li><a href="/product#coding">Code Sandbox</a></li>
+            <li><a href="/product#projects">Project Lab</a></li>
+            <li><a href="/product#focus">Distraction-Free Focus</a></li>
+            <li><a href="/product#analytics">Productivity Telemetry</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Workspace & Account</div>
+          <ul class="footer-list">
+            <li><a href="/login">Sign In / Gateway</a></li>
+            <li><a href="/signup">Create Account</a></li>
+            <li><a href="/onboarding">Personalization Setup</a></li>
+            <li><a href="/settings/personalization">Personalization Engine</a></li>
+            <li><a href="/workspace">Launch Command OS</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 AURA Inc. All rights reserved. Built to world-class Apple standards.</div>
+        <div class="status-indicator">
+          <span class="status-dot"></span>
+          <span>All Neural Systems Operational</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       SHARED GLOBAL COMMAND CENTER MODAL (⌘K QUICK LAUNCHER)
+       ======================================================================== -->
+  <div id="command-palette-backdrop" class="command-palette-backdrop" role="dialog" aria-modal="true" aria-label="AURA Command Center">
+    <div class="command-palette-box">
+      <div class="palette-search-wrapper">
+        <svg class="palette-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="palette-search-input" class="palette-search-input" placeholder="Type a command or jump to page..." autocomplete="off">
+        <span class="palette-shortcut-badge">ESC to close</span>
+      </div>
+
+      <div class="palette-group-heading">Navigation & Pages</div>
+      <div class="palette-results-list" id="palette-results-list"></div>
+
+      <div class="palette-footer">
+        <div class="palette-key-tips">
+          <span class="palette-key-tip"><span class="palette-key">↑↓</span> Navigate</span>
+          <span class="palette-key-tip"><span class="palette-key">↵</span> Select</span>
+          <span class="palette-key-tip"><span class="palette-key">ESC</span> Dismiss</span>
+        </div>
+        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-cyan);">AURA CORE v2.4</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       SHARED PROJECT ARCHITECTURE INSPECTION MODAL
+       ======================================================================== -->
+  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Project Architecture Modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div>
+          <span class="badge badge-indigo" id="modal-project-category" style="margin-bottom: 6px;">Computer Vision</span>
+          <h3 class="modal-title" id="modal-project-title">SignSense AI</h3>
+        </div>
+        <button id="btn-close-project-modal" class="modal-close" aria-label="Close dialog">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p id="modal-project-desc" style="font-size: var(--fs-body); color: var(--text-secondary); margin-bottom: 24px; line-height: var(--lh-relaxed);">
+          Description placeholder
+        </p>
+
+        <div class="os-stat-cards" style="margin-bottom: 24px;">
+          <div class="os-stat-card">
+            <div class="os-stat-header">Latency Throughput</div>
+            <div class="os-stat-number" id="modal-project-latency" style="font-size: 1.25rem;">14.2 ms</div>
+          </div>
+          <div class="os-stat-card">
+            <div class="os-stat-header">Target Velocity</div>
+            <div class="os-stat-number" id="modal-project-fps" style="font-size: 1.25rem;">60 FPS</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <div style="font-size: var(--fs-micro); font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); letter-spacing: var(--ls-caps); margin-bottom: 8px;">
+            Pipeline Architecture
+          </div>
+          <div id="modal-project-arch" style="background: var(--bg-primary); padding: 14px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); border: 1px solid var(--border-subtle);">
+            Input Frame -> Spatial Model -> Classifier
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size: var(--fs-micro); font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); letter-spacing: var(--ls-caps); margin-bottom: 8px;">
+            Tech Stack Dependencies
+          </div>
+          <div id="modal-project-tags" class="project-tags"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
